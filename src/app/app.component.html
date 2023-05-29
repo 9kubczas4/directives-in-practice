@@ -1,0 +1,24 @@
+<header>
+  <mat-toolbar color="primary">
+    <span>Directives in Practice</span>
+  </mat-toolbar>
+</header>
+<main>
+  <mat-drawer-container>
+    <mat-drawer mode="side" opened>
+      <a
+        *ngFor="let page of pages$ | async"
+        color="primary"
+        mat-button
+        [routerLink]="page.url"
+      >
+        <mat-icon aria-hidden="false">{{ page.icon }}</mat-icon>
+        <span>{{ page.label }}</span>
+      </a>
+    </mat-drawer>
+
+    <div class="ssp-layout-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</main>
