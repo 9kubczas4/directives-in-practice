@@ -8,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
+  selector: 'dip-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
