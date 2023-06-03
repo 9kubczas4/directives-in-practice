@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  justify-content: center;
+}
+
+article {
+  display: flex;
+  gap: 1rem;
+
+  dip-dumb-first,
+  dip-dumb-second {
+    width: 50%;
+  }
+}
