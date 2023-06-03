@@ -48,6 +48,13 @@ export const routes: Routes = [
         data: {
           label: 'Select [naive]'
         }
+      },
+      {
+        path: 'user-permission',
+        loadComponent: () => import('./pages/naive/user-permission/user-permission.component').then(c => c.UserPermissionComponent),
+        data: {
+          label: 'User Permission [naive]'
+        }
       }
     ]
   }

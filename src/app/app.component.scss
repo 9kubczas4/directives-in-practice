@@ -9,6 +9,7 @@ header {
     .mat-mdc-button-persistent-ripple {
       border-radius: 0.25rem;
     }
+    justify-content: space-between;
   }
 }
 
@@ -72,4 +73,8 @@ main {
 
 .dip-layout-content {
   padding: 3rem;
+}
+
+p-dropdown {
+  width: 200px !important;
 }

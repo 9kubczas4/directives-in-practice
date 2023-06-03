@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { of } from 'rxjs';
+import { of, take, tap } from 'rxjs';
 import { routes } from './routes';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { User, UserService } from './services/user.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { UserSelectDirective } from './pages/directive-solutions/select/select.directive';
 
 @Component({
   selector: 'dip-root',
@@ -14,15 +19,22 @@ import { routes } from './routes';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [CommonModule,
+    DropdownModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     RouterLink,
-    RouterOutlet]
+    RouterOutlet,
+    ReactiveFormsModule,
+    UserSelectDirective
+  ]
 })
-export class AppComponent {
-  title = 'directives-in-practice';
+export class AppComponent implements OnInit {
+  private readonly userService = inject(UserService);
+  private readonly destroyRef = inject(DestroyRef);
+
+  userFormControl = new FormControl<User | null>(null);
 
   pages$ = of(
     routes
@@ -48,4 +60,15 @@ export class AppComponent {
       }
     )
   );
+
+  ngOnInit(): void {
+    this.userService.currentUser$.pipe(take(1), takeUntilDestroyed(this.destroyRef))
+    .subscribe((currentUser) => {
+      this.userFormControl.patchValue(currentUser);
+    });
+
+    this.userFormControl.valueChanges
+    .pipe(tap((user) => this.userService.setCurrentUser(user!)), takeUntilDestroyed(this.destroyRef))
+    .subscribe();
+  }
 }
