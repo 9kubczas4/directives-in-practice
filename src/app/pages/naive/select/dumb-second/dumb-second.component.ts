@@ -20,6 +20,4 @@ export class DumbSecondComponent {
     user: new FormControl(null, Validators.required),
     // it could be more controls
   });
-
-
 }
