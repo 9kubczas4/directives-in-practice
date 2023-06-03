@@ -29,6 +29,13 @@ export const routes: Routes = [
         data: {
           label: 'Select [directive]'
         }
+      },
+      {
+        path: 'user-permission',
+        loadComponent: () => import('./pages/directive-solutions/user-permission/user-permission.component').then(c => c.UserPermissionComponent),
+        data: {
+          label: 'User Permission [directive]'
+        }
       }
     ]
   },
