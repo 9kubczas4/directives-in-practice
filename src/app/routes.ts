@@ -12,15 +12,8 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'select',
-        loadComponent: () => import('./pages/standard/select/select.component').then(c => c.UserSelectComponent),
-        data: {
-          label: 'Select [standard]'
-        }
-      },
-      {
         path: 'reactive-select',
-        loadComponent: () => import('./pages/standard/reactive-forms-select/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
+        loadComponent: () => import('./pages/standard/select/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
         data: {
           label: 'Select Reactive [standard]'
         }
