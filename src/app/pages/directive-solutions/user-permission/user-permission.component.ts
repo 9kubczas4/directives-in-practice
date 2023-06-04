@@ -14,7 +14,6 @@ import { MatListModule } from '@angular/material/list';
       <mat-list-item role="listitem">Setting 2</mat-list-item>
     </mat-list>
   `,
-  styleUrls: ['./user-permission.component.scss']
 })
 export class UserPermissionComponent {
   UserRole = UserRole;
