@@ -50,6 +50,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'disable-interactive-elements',
+        loadComponent: () => import('./pages/naive/disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
+        data: {
+          label: 'Disable Interactive Elements [naive]'
+        }
+      },
+      {
         path: 'select',
         loadComponent: () => import('./pages/naive/select/smart.component').then(c => c.SmartComponent),
         data: {
