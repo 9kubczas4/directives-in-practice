@@ -24,6 +24,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'disable-interactive-elements',
+        loadComponent: () => import('./pages/directive-solutions/disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
+        data: {
+          label: 'Disable Interactive Elements [directive]'
+        }
+      },
+      {
         path: 'select',
         loadComponent: () => import('./pages/directive-solutions/select/select-container.component').then(c => c.SelectContainerComponent),
         data: {
