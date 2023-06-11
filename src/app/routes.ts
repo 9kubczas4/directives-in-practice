@@ -57,6 +57,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'context-menu',
+        loadComponent: () => import('./pages/naive/context-menu/products-list/products-list.component').then(c => c.ProductsListComponent),
+        data: {
+          label: 'Context menu [naive]'
+        }
+      },
+      {
         path: 'disable-interactive-elements',
         loadComponent: () => import('./pages/naive/disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
         data: {

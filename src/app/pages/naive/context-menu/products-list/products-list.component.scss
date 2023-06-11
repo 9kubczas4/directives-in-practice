@@ -1,0 +1,5 @@
+// ng-deep is deprecated, but it's only used for demo purposed
+::ng-deep .mat-mdc-list-item-unscoped-content {
+  display: flex;
+  align-items: center;
+}
