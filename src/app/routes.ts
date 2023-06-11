@@ -4,13 +4,7 @@ export const routes: Routes = [
   {
     path: 'standard',
     children: [
-      {
-        path: 'reactive-select',
-        loadComponent: () => import('./pages/standard/select/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
-        data: {
-          label: 'Select Reactive [standard]'
-        }
-      }
+
     ],
   },
   {
@@ -82,6 +76,13 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/naive/select/smart.component').then(c => c.SmartComponent),
         data: {
           label: 'Select [naive]'
+        }
+      },
+      {
+        path: 'select-as-component',
+        loadComponent: () => import('./pages/naive/select-as-component/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
+        data: {
+          label: 'Select as component [naive]'
         }
       },
       {
