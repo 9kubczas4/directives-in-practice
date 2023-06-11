@@ -24,6 +24,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'context-menu',
+        loadComponent: () => import('./pages/directive-solutions/context-menu/products-list.component').then(c => c.ProductsListComponent),
+        data: {
+          label: 'Context menu [directive]'
+        }
+      },
+      {
         path: 'disable-interactive-elements',
         loadComponent: () => import('./pages/directive-solutions/disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
         data: {
@@ -58,7 +65,7 @@ export const routes: Routes = [
       },
       {
         path: 'context-menu',
-        loadComponent: () => import('./pages/naive/context-menu/products-list/products-list.component').then(c => c.ProductsListComponent),
+        loadComponent: () => import('./pages/naive/context-menu/products-list.component').then(c => c.ProductsListComponent),
         data: {
           label: 'Context menu [naive]'
         }

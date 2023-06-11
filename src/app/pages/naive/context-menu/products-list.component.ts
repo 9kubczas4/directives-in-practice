@@ -17,7 +17,7 @@ import { ThirdService } from 'src/app/services/third.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent {
-  protected readonly productService = inject(ProductService);
+  private readonly productService = inject(ProductService);
   private readonly firstService = inject(FirstService);
   private readonly secondService = inject(SecondService);
   private readonly thirdService = inject(ThirdService);
