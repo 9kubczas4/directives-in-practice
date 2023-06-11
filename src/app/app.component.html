@@ -1,6 +1,7 @@
 <header>
   <mat-toolbar color="primary">
     <span>Directives in Practice</span>
+    <p-dropdown users [formControl]="userFormControl" placeholder="Select user"></p-dropdown>
   </mat-toolbar>
 </header>
 <main>
@@ -17,7 +18,7 @@
       </a>
     </mat-drawer>
 
-    <div class="ssp-layout-content">
+    <div class="dip-layout-content">
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>

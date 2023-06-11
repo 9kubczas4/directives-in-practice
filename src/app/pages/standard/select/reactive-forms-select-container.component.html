@@ -1,0 +1,5 @@
+<form [formGroup]="formGroup">
+  <dip-user-reactive-forms-select [formControl]="userFormControl!"></dip-user-reactive-forms-select>
+</form>
+
+<p> {{ userFormControlValue$ | async | json }} </p>
