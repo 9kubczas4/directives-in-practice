@@ -1,31 +1,26 @@
-import { Directive, HostListener, Input } from '@angular/core';
-
-export type PasswordStrength = 'weak' | 'medium' | 'strong';
+import { Directive, OnInit, inject } from '@angular/core';
+import { AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
+import { PASSWORD_VALIDATION_FN } from '../providers/password-providers';
 
 @Directive({
-  selector: 'input[type="password"]',
+  selector: 'input[type="password"]:not([skipCheck])',
   standalone: true,
   exportAs: 'passwordStrength',
 })
-export class PasswordStrengthDirective {
-  @Input() noStrengthCheck = false;
+export class PasswordStrengthDirective implements OnInit {
+  private readonly ngControl = inject(NgControl, { optional: true, self: true });
+  private readonly passwordValidationFn = inject(PASSWORD_VALIDATION_FN, { optional: true });
 
-  strength: PasswordStrength = 'weak';
-
-  @HostListener('input', ['$event'])
-  onInput(event: InputEvent) {
-    if (this.noStrengthCheck) {
-      return;
-    }
-    this.strength = this.evaluatePasswordStrength((event.target as HTMLInputElement).value ?? '');
+  ngOnInit(): void {
+    this.ngControl?.control?.setValidators(this.passwordValidationFn ?? this.defaultPasswordStrengthEvaluation)
   }
 
-  private evaluatePasswordStrength(password: string): PasswordStrength {
-    if (password.length < 6) {
-      return 'weak';
-    } else if (password.length < 10) {
-      return 'medium';
+  private defaultPasswordStrengthEvaluation = (passwordControl: AbstractControl): ValidationErrors | null => {
+    if (passwordControl.value.length < 6) {
+      return { weakPassword: 'Password is weak' };
+    } else if (passwordControl.value.length < 10) {
+      return { mediumPassword: 'Password could be stronger'};
     }
-    return 'strong';
+    return null;
   }
 }
