@@ -32,6 +32,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'input-examples',
+        loadComponent: () => import('./pages/directive-solutions/input/input-examples.component').then(c => c.InputExamplesComponent),
+        data: {
+          label: 'Input [directive]'
+        }
+      },
+      {
         path: 'select',
         loadComponent: () => import('./pages/directive-solutions/select/select-container.component').then(c => c.SelectContainerComponent),
         data: {

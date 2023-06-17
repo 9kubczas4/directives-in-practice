@@ -1,6 +1,8 @@
-<h2>Password strength</h2>
+<section>
+  <h2>Password strength</h2>
+  <input type="password" #evaluator="passwordStrength">
+  <div *ngIf="evaluator.strength === 'weak'">Weak password</div>
+  <div *ngIf="evaluator.strength === 'medium'">Medium password</div>
+  <div *ngIf="evaluator.strength === 'strong'">Strong password</div>
+</section>
 
-<input type="password" #evaluator="passwordStrength">
-<div *ngIf="evaluator.strength === 'weak'">Weak password</div>
-<div *ngIf="evaluator.strength === 'medium'">Medium password</div>
-<div *ngIf="evaluator.strength === 'strong'">Strong password</div>

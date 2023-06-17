@@ -9,16 +9,15 @@ export type PasswordStrength = 'weak' | 'medium' | 'strong';
 })
 export class PasswordStrengthDirective {
   @Input() noStrengthCheck = false;
-  // property to capture in the template
+
   strength: PasswordStrength = 'weak';
-  // no need for ElementRef anymore
 
   @HostListener('input', ['$event'])
   onInput(event: InputEvent) {
     if (this.noStrengthCheck) {
       return;
     }
-    this.strength = this.evaluatePasswordStrength(event.data ?? '');
+    this.strength = this.evaluatePasswordStrength((event.target as HTMLInputElement).value ?? '');
   }
 
   private evaluatePasswordStrength(password: string): PasswordStrength {
