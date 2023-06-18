@@ -6,7 +6,7 @@ import { advancedPasswordValidator } from './validators/advanced-password-valida
 import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
 
 @Component({
-  selector: 'dip-input-examples',
+  selector: 'dip-password-strength',
   standalone: true,
   imports: [NgIf, PasswordStrengthDirective, ReactiveFormsModule, JsonPipe],
   providers: [
@@ -15,8 +15,8 @@ import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
       useValue: advancedPasswordValidator,
     }
   ],
-  templateUrl: './input-examples.component.html',
-  styleUrls: ['./input-examples.component.scss']
+  templateUrl: './password-strength.component.html',
+  styleUrls: ['./password-strength.component.scss']
 })
 export class InputExamplesComponent {
   passwordFormGroup = new FormGroup({

@@ -32,10 +32,10 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'input-examples',
-        loadComponent: () => import('./pages/directive-solutions/input/input-examples.component').then(c => c.InputExamplesComponent),
+        path: 'password-strength',
+        loadComponent: () => import('./pages/directive-solutions/password-strength/password-strength.component').then(c => c.InputExamplesComponent),
         data: {
-          label: 'Input [directive]'
+          label: 'Password Strength [directive]'
         }
       },
       {
