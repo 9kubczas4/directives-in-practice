@@ -17,7 +17,7 @@ const MOCKED_USERS: User[] = [
   { fullName: 'Cristiano Ronaldo', roles: [UserRole.ADMIN] },
   { fullName: 'Luis Suarez', roles: [UserRole.USER] },
   { fullName: 'Robert Lewandowski', roles: [UserRole.USER] },
-  { fullName: 'Erling Haaland', roles: [UserRole.USER] },
+  { fullName: 'Erling Haaland', roles: [UserRole.USER, UserRole.MANAGER] },
 ];
 
 @Injectable({
