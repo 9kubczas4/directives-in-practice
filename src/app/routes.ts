@@ -32,6 +32,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'open-external-links-in-new-tab',
+        loadComponent: () => import('./pages/directive-solutions/open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
+        data: {
+          label: 'Open External Links [directive]'
+        }
+      },
+      {
         path: 'password-strength',
         loadComponent: () => import('./pages/directive-solutions/password-strength/password-strength.component').then(c => c.InputExamplesComponent),
         data: {
