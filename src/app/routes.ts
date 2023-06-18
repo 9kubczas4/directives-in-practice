@@ -4,13 +4,7 @@ export const routes: Routes = [
   {
     path: 'standard',
     children: [
-      {
-        path: 'reactive-select',
-        loadComponent: () => import('./pages/standard/select/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
-        data: {
-          label: 'Select Reactive [standard]'
-        }
-      }
+
     ],
   },
   {
@@ -35,6 +29,20 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/directive-solutions/disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
         data: {
           label: 'Disable Interactive Elements [directive]'
+        }
+      },
+      {
+        path: 'open-external-links-in-new-tab',
+        loadComponent: () => import('./pages/directive-solutions/open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
+        data: {
+          label: 'Open External Links [directive]'
+        }
+      },
+      {
+        path: 'password-strength',
+        loadComponent: () => import('./pages/directive-solutions/password-strength/password-strength.component').then(c => c.InputExamplesComponent),
+        data: {
+          label: 'Password Strength [directive]'
         }
       },
       {
@@ -82,6 +90,13 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/naive/select/smart.component').then(c => c.SmartComponent),
         data: {
           label: 'Select [naive]'
+        }
+      },
+      {
+        path: 'select-as-component',
+        loadComponent: () => import('./pages/naive/select-as-component/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
+        data: {
+          label: 'Select as component [naive]'
         }
       },
       {
