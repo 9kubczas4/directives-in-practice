@@ -36,7 +36,7 @@ export class ProductService {
     });
   }
 
-  duplicate(product: Product): void {
+  copy(product: Product): void {
     this.snackBar.open(`Copy - ${product.name}`, undefined, {
       duration: 3000
     });

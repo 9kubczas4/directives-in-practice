@@ -2,9 +2,15 @@ import { Routes } from "@angular/router";
 
 export const routes: Routes = [
   {
-    path: 'standard',
+    path: 'directive-composition-api',
     children: [
-
+      {
+        path: 'context-menu',
+        loadComponent: () => import('./pages/directive-compositon-api/context-menu/products-list.component').then(c => c.ProductsListComponent),
+        data: {
+          label: 'Context menu [Directive Composition API]'
+        }
+      }
     ],
   },
   {

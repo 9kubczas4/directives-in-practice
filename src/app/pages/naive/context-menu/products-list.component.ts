@@ -36,7 +36,7 @@ export class ProductsListComponent {
   }
 
   duplicateProduct(product: Product): void {
-    this.productService.duplicate(product);
+    this.productService.copy(product);
   }
 
   executeAction1(productName: string): void {

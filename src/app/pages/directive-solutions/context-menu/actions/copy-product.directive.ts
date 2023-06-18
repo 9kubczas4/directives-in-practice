@@ -2,16 +2,16 @@ import { Directive, HostListener, Input, inject } from '@angular/core';
 import { Product, ProductService } from 'src/app/services/product.service';
 
 @Directive({
-  selector: '[dipDuplicateProduct]',
+  selector: '[dipCopyProduct]',
   standalone: true
 })
-export class DuplicateProductDirective {
+export class CopyProductDirective {
   @Input({ required: true }) product!: Product;
 
   private readonly productService = inject(ProductService);
 
   @HostListener('click')
-  duplicateProduct(): void {
-    this.productService.duplicate(this.product);
+  copyProduct(): void {
+    this.productService.copy(this.product);
   }
 }
