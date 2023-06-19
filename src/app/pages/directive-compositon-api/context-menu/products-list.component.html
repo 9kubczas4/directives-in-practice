@@ -13,7 +13,7 @@
       <mat-icon>edit</mat-icon>
       <span>Edit</span>
     </button>
-    <button mat-menu-item dipCopyProduct [product]="product" [activeFor]="[UserRole.MANAGER, UserRole.ADMIN]" message=",">
+    <button mat-menu-item dipCopyProduct [product]="product" [activeFor]="[UserRole.MANAGER, UserRole.ADMIN]">
       <mat-icon>file_copy</mat-icon>
       <span>Copy</span>
     </button>
@@ -29,7 +29,7 @@
       <mat-icon>call_to_action</mat-icon>
       <span>Action 3</span>
     </button>
-    <button mat-menu-item *hasRole="[UserRole.ADMIN]" dipDeleteProduct [product]="product" message="Deletion is irreversible">
+    <button mat-menu-item *hasRole="[UserRole.ADMIN, UserRole.MANAGER]" dipDeleteProduct [product]="product" [activeFor]="[UserRole.ADMIN]" message="Deletion is irreversible">
       <mat-icon>delete_forever</mat-icon>
       <span>Delete</span>
     </button>
