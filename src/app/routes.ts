@@ -38,6 +38,13 @@ export const routes: Routes = [
         }
       },
       {
+        path: 'ng-plural',
+        loadComponent: () => import('./pages/directive-solutions/ng-plural/ng-plural.component').then(c => c.NgPluralComponent),
+        data: {
+          label: 'Ng Plural [directive]'
+        }
+      },
+      {
         path: 'open-external-links-in-new-tab',
         loadComponent: () => import('./pages/directive-solutions/open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
         data: {
