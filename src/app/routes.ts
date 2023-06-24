@@ -35,7 +35,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/directive-solutions/context-menu/products-list.component').then(c => c.ProductsListComponent),
         data: {
           label: 'Context menu [directive]',
-          position: 111
+          position: 13
         }
       },
       {
@@ -103,7 +103,8 @@ export const routes: Routes = [
         path: 'context-menu',
         loadComponent: () => import('./pages/naive/context-menu/products-list.component').then(c => c.ProductsListComponent),
         data: {
-          label: 'Context menu [naive]'
+          label: 'Context menu [naive]',
+          position: 12,
         }
       },
       {
