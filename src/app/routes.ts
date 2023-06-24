@@ -2,6 +2,11 @@ import { Routes } from "@angular/router";
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'directive/password-strength',
+    pathMatch: 'full'
+  },
+  {
     path: 'directive-composition-api',
     children: [
       {
@@ -48,14 +53,14 @@ export const routes: Routes = [
         path: 'open-external-links-in-new-tab',
         loadComponent: () => import('./pages/directive-solutions/open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
         data: {
-          label: 'Open External Links [directive]'
+          label: '2. Open External Links [directive]'
         }
       },
       {
         path: 'password-strength',
         loadComponent: () => import('./pages/directive-solutions/password-strength/password-strength.component').then(c => c.InputExamplesComponent),
         data: {
-          label: 'Password Strength [directive]'
+          label: '1. Password Strength [directive]'
         }
       },
       {

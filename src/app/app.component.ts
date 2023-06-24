@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   pages$ = of(
     routes
     .flatMap(x => x.children?.map(child => ({...child, url: `${x?.path}/${child?.path}`})))
+    .filter(x => !!x?.data)
     .map((route) => ({
       label: route?.data ? route.data['label'] : null,
       url: route?.url,
@@ -46,8 +47,8 @@ export class AppComponent implements OnInit {
     }))
     .sort(
       (a, b) => {
-        const nameA = a.label.toUpperCase(); // ignore upper and lowercase
-        const nameB = b.label.toUpperCase(); // ignore upper and lowercase
+        const nameA = a.label?.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.label?.toUpperCase(); // ignore upper and lowercase
         if (nameA < nameB) {
           return -1;
         }

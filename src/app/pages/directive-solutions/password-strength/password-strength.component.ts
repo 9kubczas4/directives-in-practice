@@ -9,12 +9,13 @@ import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
   selector: 'dip-password-strength',
   standalone: true,
   imports: [NgIf, PasswordStrengthDirective, ReactiveFormsModule, JsonPipe],
-  providers: [
-    {
-      provide: PASSWORD_VALIDATION_FN,
-      useValue: advancedPasswordValidator,
-    }
-  ],
+  // 1. DEMO DI
+  // providers: [
+  //   {
+  //     provide: PASSWORD_VALIDATION_FN,
+  //     useValue: advancedPasswordValidator,
+  //   }
+  // ],
   templateUrl: './password-strength.component.html',
   styleUrls: ['./password-strength.component.scss']
 })
