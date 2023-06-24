@@ -5,14 +5,16 @@ import { PASSWORD_VALIDATION_FN } from '../providers/password-providers';
 @Directive({
   selector: 'input[type="password"]:not([skipCheck])',
   standalone: true,
-  exportAs: 'passwordStrength',
+  // exportAs: 'passwordStrength', // 3. DEMO exportAs
 })
 export class PasswordStrengthDirective implements OnInit {
   private readonly ngControl = inject(NgControl, { optional: true, self: true });
   private readonly passwordValidationFn = inject(PASSWORD_VALIDATION_FN, { optional: true });
 
   ngOnInit(): void {
-    this.ngControl?.control?.setValidators(this.passwordValidationFn ?? this.defaultPasswordStrengthEvaluation)
+    if (this.ngControl && this.ngControl.control) {
+      this.ngControl.control.setValidators(this.passwordValidationFn ?? this.defaultPasswordStrengthEvaluation)
+    }
   }
 
   private defaultPasswordStrengthEvaluation = (passwordControl: AbstractControl): ValidationErrors | null => {

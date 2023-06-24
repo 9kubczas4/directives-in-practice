@@ -30,7 +30,7 @@ export class HasRoleDirective {
   // Directive Composition API
   @Input('hasRole') set roles(value: UserRole[]) {
     this.userService.hasRole(value)
-      .pipe(take(1), takeUntilDestroyed(this.destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((hasRole) =>
         hasRole ? this.addTemplate() : this.clearTemplate()
       );
