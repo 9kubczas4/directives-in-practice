@@ -43,23 +43,10 @@ export class AppComponent implements OnInit {
     .map((route) => ({
       label: route?.data ? route.data['label'] : null,
       url: route?.url,
-      icon: null
+      icon: null,
+      position: route?.data ? route.data['position'] : null,
     }))
-    .sort(
-      (a, b) => {
-        const nameA = a.label?.toUpperCase(); // ignore upper and lowercase
-        const nameB = b.label?.toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-        // names must be equal
-        return 0;
-      }
-    )
+    .sort((a, b) => a.position - b.position)
   );
 
   ngOnInit(): void {

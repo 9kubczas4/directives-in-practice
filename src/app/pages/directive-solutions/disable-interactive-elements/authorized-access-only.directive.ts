@@ -22,7 +22,7 @@ export class AuthorizedAccessOnlyDirective {
   // Directive Composition API
   @Input() set roles(value: UserRole[]) {
     this.userService.hasRole(value)
-    .pipe(take(1), takeUntilDestroyed(this.destroyRef))
+    .pipe(takeUntilDestroyed(this.destroyRef))
     .subscribe((hasPermission) => {
       this.updateDisabledStatus(!hasPermission);
     });
@@ -36,9 +36,11 @@ export class AuthorizedAccessOnlyDirective {
       this.select.disabled = disabled;
     } else if (this.menuItem) {
       this.menuItem.disabled = disabled;
-    } else if (
-      this.elementRef.nativeElement &&
-      'disabled' in this.elementRef.nativeElement
+    } else
+    // DEMO comment above
+    if (
+      this.elementRef.nativeElement
+      && 'disabled' in this.elementRef.nativeElement  // DEMO comment this line
     ) {
       this.elementRef.nativeElement.disabled = disabled;
     }
