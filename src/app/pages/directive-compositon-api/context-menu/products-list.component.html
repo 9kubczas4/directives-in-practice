@@ -9,11 +9,11 @@
 
 <mat-menu #menu="matMenu">
   <ng-template matMenuContent let-product="product">
-    <!-- DEMO: remove activeFor -->
     <button mat-menu-item *hasRole="[UserRole.ADMIN, UserRole.MANAGER]" dipEditProduct [product]="product">
       <mat-icon>edit</mat-icon>
       <span>Edit</span>
     </button>
+    <!-- DEMO: remove activeFor -->
     <button mat-menu-item dipCopyProduct [product]="product" [activeFor]="[UserRole.MANAGER, UserRole.ADMIN]">
       <mat-icon>file_copy</mat-icon>
       <span>Copy</span>
