@@ -1,9 +1,8 @@
-import { Directive, inject, DestroyRef, Input, ElementRef, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Directive, inject, DestroyRef, Input, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatMenuItem } from '@angular/material/menu';
 import { Button } from 'primeng/button';
 import { Dropdown } from 'primeng/dropdown';
-import { take } from 'rxjs';
 import { UserRole, UserService } from 'src/app/services/user.service';
 
 @Directive({
