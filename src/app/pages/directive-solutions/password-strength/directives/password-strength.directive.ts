@@ -17,11 +17,8 @@ export class PasswordStrengthDirective implements OnInit {
   }
 
   private defaultPasswordStrengthEvaluation = (passwordControl: AbstractControl): ValidationErrors | null => {
-    if (passwordControl.value.length < 6) {
-      return { weakPassword: 'Password is weak' };
-    } else if (passwordControl.value.length < 10) {
-      return { mediumPassword: 'Password could be stronger'};
-    }
-    return null;
+    return passwordControl.value.length < 6
+      ? { weakPassword: 'Password is weak' }
+      : null;
   }
 }
