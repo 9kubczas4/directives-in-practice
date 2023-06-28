@@ -13,21 +13,6 @@ export class HasRoleDirective {
   private readonly userService = inject(UserService);
   private readonly viewContainer = inject(ViewContainerRef);
 
-  // @Input('hasRole') roles?: UserRole[];
-
-  // ngOnInit(): void {
-  //   if (this.roles) {
-  //     this.userService.hasRole(this.roles)
-  //       .pipe(takeUntilDestroyed(this.destroyRef))
-  //       .subscribe((hasRole) =>
-  //         hasRole ? this.addTemplate() : this.clearTemplate()
-  //       );
-  //   } else {
-  //     this.addTemplate();
-  //   }
-  // }
-
-  // Directive Composition API
   @Input('hasRole') set roles(value: UserRole[]) {
     this.userService.hasRole(value)
       .pipe(takeUntilDestroyed(this.destroyRef))
