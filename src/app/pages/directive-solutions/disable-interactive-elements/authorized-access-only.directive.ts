@@ -18,7 +18,6 @@ export class AuthorizedAccessOnlyDirective {
   private readonly select = inject(Dropdown, { self: true, optional: true });
   private readonly menuItem = inject(MatMenuItem, { optional: true });
 
-  // Directive Composition API
   @Input() set roles(value: UserRole[]) {
     this.userService.hasRole(value)
     .pipe(takeUntilDestroyed(this.destroyRef))
