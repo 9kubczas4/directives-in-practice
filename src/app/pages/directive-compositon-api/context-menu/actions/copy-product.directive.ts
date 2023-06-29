@@ -1,7 +1,7 @@
 import { Directive, HostListener, Input, inject } from '@angular/core';
 import { AuthorizedAccessOnlyDirective } from 'src/app/pages/directive-solutions/disable-interactive-elements/authorized-access-only.directive';
 import { Product, ProductService } from 'src/app/services/product.service';
-// import { UserRole } from 'src/app/services/user.service';
+import { UserRole } from 'src/app/services/user.service';
 
 @Directive({
   selector: '[dipCopyProduct]',
@@ -28,5 +28,5 @@ export class CopyProductDirective {
 // private readonly authorizedAccessOnlyDirective = inject(AuthorizedAccessOnlyDirective);
 
 // ngOnInit(): void {
-//   this.authorizedAccessOnlyDirective.roles = [UserRole.ADMIN]
+//   this.authorizedAccessOnlyDirective.roles = [UserRole.ADMIN, UserRole.MANAGER]
 // }
