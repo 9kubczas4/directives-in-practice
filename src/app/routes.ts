@@ -59,7 +59,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/directive-solutions/open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
         data: {
           label: 'Open External Links [directive]',
-          position: 2
+          position: 1
         }
       },
       {
@@ -67,7 +67,7 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/directive-solutions/password-strength/password-strength.component').then(c => c.InputExamplesComponent),
         data: {
           label: 'Password Strength [directive]',
-          position: 1
+          position: 2
         }
       },
       {
