@@ -13,10 +13,11 @@ export class AuthorizedAccessOnlyDirective {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly userService = inject(UserService);
+
   private readonly elementRef = inject(ElementRef, { self: true });
   private readonly button = inject(Button, { self: true, optional: true });
   private readonly select = inject(Dropdown, { self: true, optional: true });
-  private readonly menuItem = inject(MatMenuItem, { optional: true });
+  private readonly menuItem = inject(MatMenuItem, { self: true, optional: true });
 
   @Input() set roles(value: UserRole[]) {
     this.userService.hasRole(value)
@@ -34,12 +35,7 @@ export class AuthorizedAccessOnlyDirective {
       this.select.disabled = disabled;
     } else if (this.menuItem) {
       this.menuItem.disabled = disabled;
-    } else
-    // DEMO comment above
-    if (
-      this.elementRef.nativeElement
-      && 'disabled' in this.elementRef.nativeElement  // DEMO comment this line
-    ) {
+    } else if (this.elementRef.nativeElement && 'disabled' in this.elementRef.nativeElement) {
       this.elementRef.nativeElement.disabled = disabled;
     }
   }
