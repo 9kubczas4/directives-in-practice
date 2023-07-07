@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NavigationOrder } from 'src/app/enums/navigation-order';
 
 export const routes: Routes = [
   {
@@ -6,7 +7,7 @@ export const routes: Routes = [
     loadComponent: () => import('./calendar/calendar.component').then(c => c.CalendarComponent),
     data: {
       label: 'Calendar [naive]',
-      position: 3,
+      position: NavigationOrder.NAIVE_CALENDAR,
     }
   },
   {
@@ -14,7 +15,7 @@ export const routes: Routes = [
     loadComponent: () => import('./context-menu/products-list.component').then(c => c.ProductsListComponent),
     data: {
       label: 'Context menu [naive]',
-      position: 12,
+      position: NavigationOrder.NAIVE_CONTEXT_MENU,
     }
   },
   {
@@ -22,7 +23,7 @@ export const routes: Routes = [
     loadComponent: () => import('./disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
     data: {
       label: 'Disable Interactive Elements [naive]',
-      position: 10,
+      position: NavigationOrder.NAIVE_DISABLE_INTERACTIVE_ELEMENTS,
     }
   },
   {
@@ -30,7 +31,7 @@ export const routes: Routes = [
     loadComponent: () => import('./select/smart.component').then(c => c.SmartComponent),
     data: {
       label: 'Select [naive]',
-      position: 5,
+      position: NavigationOrder.NAIVE_SELECT,
     }
   },
   {
@@ -38,7 +39,7 @@ export const routes: Routes = [
     loadComponent: () => import('./select-as-component/reactive-forms-select-container.component').then(c => c.ReactiveFormsSelectContainerComponent),
     data: {
       label: 'Select as component [naive]',
-      position: 6,
+      position: NavigationOrder.NAIVE_SELECT_AS_COMPONENT,
     }
   },
   {
@@ -46,7 +47,7 @@ export const routes: Routes = [
     loadComponent: () => import('./user-permission/user-permission.component').then(c => c.UserPermissionComponent),
     data: {
       label: 'User Permission [naive]',
-      position: 8
+      position: NavigationOrder.NAIVE_USER_PERMISSION
     }
   }
 ]

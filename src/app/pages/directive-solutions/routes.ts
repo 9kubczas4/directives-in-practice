@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { NavigationOrder } from "src/app/enums/navigation-order";
 
 export const routes: Routes = [
   {
@@ -6,7 +7,7 @@ export const routes: Routes = [
     loadComponent: () => import('./calendar/calendar.component').then(c => c.CalendarComponent),
     data: {
       label: 'Calendar [directive]',
-      position: 4
+      position: NavigationOrder.DIRECTIVE_CALENDAR
     }
   },
   {
@@ -14,7 +15,7 @@ export const routes: Routes = [
     loadComponent: () => import('./context-menu/products-list.component').then(c => c.ProductsListComponent),
     data: {
       label: 'Context menu [directive]',
-      position: 13
+      position: NavigationOrder.DIRECTIVE_CONTEXT_MENU
     }
   },
   {
@@ -22,7 +23,7 @@ export const routes: Routes = [
     loadComponent: () => import('./disable-interactive-elements/disable-interactive-elements.component').then(c => c.DisableInteractiveElementsComponent),
     data: {
       label: 'Disable Interactive Elements [directive]',
-      position: 11
+      position: NavigationOrder.DIRECTIVE_DISABLE_INTERACTIVE_ELEMENTS
     }
   },
   {
@@ -30,7 +31,7 @@ export const routes: Routes = [
     loadComponent: () => import('./ng-plural/ng-plural.component').then(c => c.NgPluralComponent),
     data: {
       label: 'Ng Plural [directive]',
-      position: 113
+      position: NavigationOrder.DIRECTIVE_NG_PLURAL
     }
   },
   {
@@ -38,7 +39,7 @@ export const routes: Routes = [
     loadComponent: () => import('./open-external-links-in-new-tab/open-external-links-in-new-tab.component').then(c => c.OpenExternalLinksInNewTabComponent),
     data: {
       label: 'Open External Links [directive]',
-      position: 1
+      position: NavigationOrder.DIRECTIVE_OPEN_EXTERNAL_LINKS
     }
   },
   {
@@ -46,7 +47,7 @@ export const routes: Routes = [
     loadComponent: () => import('./password-strength/password-strength.component').then(c => c.InputExamplesComponent),
     data: {
       label: 'Password Strength [directive]',
-      position: 2
+      position: NavigationOrder.DIRECTIVE_PASSWORD_STRENGTH
     }
   },
   {
@@ -54,7 +55,7 @@ export const routes: Routes = [
     loadComponent: () => import('./select/select-container.component').then(c => c.SelectContainerComponent),
     data: {
       label: 'Select [directive]',
-      position: 7
+      position: NavigationOrder.DIRECTIVE_SELECT
     }
   },
   {
@@ -62,7 +63,7 @@ export const routes: Routes = [
     loadComponent: () => import('./user-permission/user-permission.component').then(c => c.UserPermissionComponent),
     data: {
       label: 'User Permission [directive]',
-      position: 9
+      position: NavigationOrder.DIRECTIVE_USER_PERMISSION
     }
   }
 ];
