@@ -6,16 +6,17 @@ Note: It is crucial not to consider all usages of directives as 'Best Practices'
 Note: Please note that the application utilizes two UI libraries, and the rationale behind this choice is straightforward. By incorporating these libraries, I was able to showcase a broader range of use cases and demonstrate their practical applications.
 
 ## Project folder structure
-.
-├── enums                      
-├── helpers                    
-├── pages                     
-│   ├── directive-composition-api   #Contains use cases implemented using Directive Composition API
-│   ├── directive-solutions         #Contains use cases implemented using Directive solutions
-│   └── naive                       #Contains standard approach for various use cases
-├── services                  
-├── types                     
-└── app.component.ts
+
+    .
+    ├── enums
+    ├── helpers
+    ├── pages                     
+    │   ├── directive-composition-api   # Use cases implemented using Directive Composition API
+    │   ├── directive-solutions         # Use cases implemented using Directive solutions
+    │   └── naive                       # Contains standard approach for various use cases
+    ├── services                    
+    ├── types                     
+    └── app.component.ts
 
 # Presentation - Angular Wrocław
 
