@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, HostListener, Renderer2, inject } from '@angular/core';
 
+// Directive written by ChatGPT
 @Directive({
   selector: '[dipTooltip]',
   standalone: true

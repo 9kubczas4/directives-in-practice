@@ -2,16 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { of, take, tap } from 'rxjs';
-import { routes } from './routes';
+import { tap } from 'rxjs';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { User, UserService } from './services/user.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UserSelectDirective } from './pages/directive-solutions/select/select.directive';
+import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'dip-root',
@@ -21,7 +20,6 @@ import { UserSelectDirective } from './pages/directive-solutions/select/select.d
   imports: [CommonModule,
     DropdownModule,
     MatButtonModule,
-    MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
     RouterLink,
@@ -31,26 +29,16 @@ import { UserSelectDirective } from './pages/directive-solutions/select/select.d
   ]
 })
 export class AppComponent implements OnInit {
-  private readonly userService = inject(UserService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly navigationService = inject(NavigationService);
+  private readonly userService = inject(UserService);
 
   userFormControl = new FormControl<User | null>(null);
 
-  pages$ = of(
-    routes
-    .flatMap(x => x.children?.map(child => ({...child, url: `${x?.path}/${child?.path}`})))
-    .filter(x => !!x?.data)
-    .map((route) => ({
-      label: route?.data ? route.data['label'] : null,
-      url: route?.url,
-      icon: null,
-      position: route?.data ? route.data['position'] : null,
-    }))
-    .sort((a, b) => a.position - b.position)
-  );
+  pages$ = this.navigationService.pages$;
 
   ngOnInit(): void {
-    this.userService.currentUser$.pipe(take(1), takeUntilDestroyed(this.destroyRef))
+    this.userService.currentUser$.pipe(takeUntilDestroyed(this.destroyRef))
     .subscribe((currentUser) => {
       this.userFormControl.patchValue(currentUser);
     });
