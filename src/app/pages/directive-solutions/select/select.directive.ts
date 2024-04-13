@@ -5,7 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 
 @Directive({
   selector: 'p-dropdown[users]',
-  standalone: true
+  standalone: true,
 })
 export class UserSelectDirective implements OnInit {
   private readonly select = inject(Dropdown, { self: true });
@@ -13,9 +13,10 @@ export class UserSelectDirective implements OnInit {
   private readonly userService$ = inject(UserService);
 
   ngOnInit(): void {
-    this.userService$.getUsers()
+    this.userService$
+      .getUsers()
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((users) => {
+      .subscribe(users => {
         this.select.options = users;
       });
 

@@ -1,6 +1,6 @@
-import { Injectable, inject } from "@angular/core";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { of } from "rxjs";
+import { Injectable, inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { of } from 'rxjs';
 
 export interface Product {
   id: number;
@@ -17,7 +17,7 @@ const MOCKED_PRODUCTS: Product[] = [
 ];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   private readonly snackBar = inject(MatSnackBar);
@@ -26,19 +26,19 @@ export class ProductService {
 
   edit(product: Product): void {
     this.snackBar.open(`Edit - ${product.name}`, undefined, {
-      duration: 3000
+      duration: 3000,
     });
   }
 
   delete(product: Product): void {
     this.snackBar.open(`Delete - ${product.name}`, undefined, {
-      duration: 3000
+      duration: 3000,
     });
   }
 
   copy(product: Product): void {
     this.snackBar.open(`Copy - ${product.name}`, undefined, {
-      duration: 3000
+      duration: 3000,
     });
   }
 }

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './ng-plural.component.html',
-  styleUrls: ['./ng-plural.component.scss']
+  styleUrls: ['./ng-plural.component.scss'],
 })
 export class NgPluralComponent {
   items: string[] = [];

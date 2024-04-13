@@ -8,14 +8,23 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ProductService } from 'src/app/services/product.service';
 import { actions } from './actions';
 import { HasRoleDirective } from '../../directive-solutions/user-permission/has-role.directive';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'dip-products-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatListModule, MatMenuModule, MatTooltipModule, ...actions, HasRoleDirective],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatTooltipModule,
+    ...actions,
+    HasRoleDirective,
+  ],
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent {
   private readonly productService = inject(ProductService);

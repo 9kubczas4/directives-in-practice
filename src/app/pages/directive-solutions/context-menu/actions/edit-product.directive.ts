@@ -3,7 +3,7 @@ import { Product, ProductService } from 'src/app/services/product.service';
 
 @Directive({
   selector: '[dipEditProduct]',
-  standalone: true
+  standalone: true,
 })
 export class EditProductDirective {
   @Input({ required: true }) product!: Product;

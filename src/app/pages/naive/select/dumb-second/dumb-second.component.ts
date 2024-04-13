@@ -1,6 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,7 +14,7 @@ import { UserService } from 'src/app/services/user.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, DropdownModule],
   templateUrl: './dumb-second.component.html',
-  styleUrls: ['./dumb-second.component.scss']
+  styleUrls: ['./dumb-second.component.scss'],
 })
 export class DumbSecondComponent {
   private readonly userService$ = inject(UserService);

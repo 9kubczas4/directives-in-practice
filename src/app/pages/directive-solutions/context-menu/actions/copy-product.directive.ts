@@ -3,7 +3,7 @@ import { Product, ProductService } from 'src/app/services/product.service';
 
 @Directive({
   selector: '[dipCopyProduct]',
-  standalone: true
+  standalone: true,
 })
 export class CopyProductDirective {
   @Input({ required: true }) product!: Product;

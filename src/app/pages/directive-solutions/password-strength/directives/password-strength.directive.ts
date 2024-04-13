@@ -7,18 +7,27 @@ import { PASSWORD_VALIDATION_FN } from '../providers/password-providers';
   standalone: true,
 })
 export class PasswordStrengthDirective implements OnInit {
-  private readonly ngControl = inject(NgControl, { optional: true, self: true });
-  private readonly passwordValidationFn = inject(PASSWORD_VALIDATION_FN, { optional: true });
+  private readonly ngControl = inject(NgControl, {
+    optional: true,
+    self: true,
+  });
+  private readonly passwordValidationFn = inject(PASSWORD_VALIDATION_FN, {
+    optional: true,
+  });
 
   ngOnInit(): void {
     if (this.ngControl && this.ngControl.control) {
-      this.ngControl.control.setValidators(this.passwordValidationFn ?? this.defaultPasswordStrengthEvaluation)
+      this.ngControl.control.setValidators(
+        this.passwordValidationFn ?? this.defaultPasswordStrengthEvaluation
+      );
     }
   }
 
-  private defaultPasswordStrengthEvaluation = (passwordControl: AbstractControl): ValidationErrors | null => {
+  private defaultPasswordStrengthEvaluation = (
+    passwordControl: AbstractControl
+  ): ValidationErrors | null => {
     return passwordControl.value.length < 6
       ? { weakPassword: 'Password is weak' }
       : null;
-  }
+  };
 }

@@ -7,15 +7,15 @@ import { Product, ProductService } from 'src/app/services/product.service';
   selector: '[dipDeleteProduct]',
   standalone: true,
   hostDirectives: [
-    { directive: TooltipDirective, inputs: ['message']},
+    { directive: TooltipDirective, inputs: ['message'] },
     {
       directive: AuthorizedAccessOnlyDirective,
-      inputs: ['roles: activeFor']
+      inputs: ['roles: activeFor'],
     },
   ],
 })
 export class DeleteProductDirective {
-  @Input({required: true}) product!: Product;
+  @Input({ required: true }) product!: Product;
 
   private readonly productService = inject(ProductService);
 

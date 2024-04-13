@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostBinding, inject } from '@angular/core';
 
 @Directive({
   selector: 'a:not([noBlank])',
-  standalone: true
+  standalone: true,
 })
 export class ExternalLinkDirective {
   private readonly elRef: ElementRef<HTMLAnchorElement> = inject(ElementRef);
@@ -19,5 +19,6 @@ export class ExternalLinkDirective {
     }
   }
 
-  private isLinkExternal = (url: string) => new URL(url).origin !== location.origin;
+  private isLinkExternal = (url: string) =>
+    new URL(url).origin !== location.origin;
 }

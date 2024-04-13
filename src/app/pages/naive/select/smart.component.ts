@@ -8,8 +8,6 @@ import { DumbSecondComponent } from './dumb-second/dumb-second.component';
   standalone: true,
   imports: [DumbFirstComponent, DumbSecondComponent],
   templateUrl: './smart.component.html',
-  styleUrls: ['./smart.component.scss']
+  styleUrls: ['./smart.component.scss'],
 })
-export class SmartComponent {
-
-}
+export class SmartComponent {}

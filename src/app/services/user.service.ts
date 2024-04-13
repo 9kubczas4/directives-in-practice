@@ -4,7 +4,7 @@ import { BehaviorSubject, map, of } from 'rxjs';
 export enum UserRole {
   ADMIN = 'admin',
   MANAGER = 'manager',
-  USER = 'user'
+  USER = 'user',
 }
 
 export interface User {
@@ -21,23 +21,26 @@ const MOCKED_USERS: User[] = [
 ];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   getUsers = () => of(MOCKED_USERS);
 
   // This subject shouldn't be public, but it's ok for demo purposes
-  currentUser$ = new BehaviorSubject<User>(MOCKED_USERS[0])
+  currentUser$ = new BehaviorSubject<User>(MOCKED_USERS[0]);
 
   hasRole = (roles: UserRole[]) =>
     this.currentUser$.pipe(
-      map((user) => {
+      map(user => {
         const userRoles: UserRole[] = Array.isArray(roles) ? roles : [roles];
-        return userRoles.length === 0 || user?.roles.some((r) => userRoles.includes(r as UserRole));
+        return (
+          userRoles.length === 0 ||
+          user?.roles.some(r => userRoles.includes(r as UserRole))
+        );
       })
     );
 
   setCurrentUser = (user: User) => {
     this.currentUser$.next(user);
-  }
+  };
 }

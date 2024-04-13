@@ -14,7 +14,7 @@ import { MatListModule } from '@angular/material/list';
         <mat-list-item role="listitem">Setting 2</mat-list-item>
       </mat-list>
     }
-    `,
+  `,
 })
 export class UserPermissionComponent {
   private readonly userService = inject(UserService);

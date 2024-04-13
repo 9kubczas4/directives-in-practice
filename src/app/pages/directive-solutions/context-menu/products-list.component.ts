@@ -10,9 +10,16 @@ import { actions } from './actions';
 @Component({
   selector: 'dip-products-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatListModule, MatMenuModule, ...actions],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    ...actions,
+  ],
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent {
   private readonly productService = inject(ProductService);

@@ -3,7 +3,7 @@ import { Product, ProductService } from 'src/app/services/product.service';
 
 @Directive({
   selector: '[dipDeleteProduct]',
-  standalone: true
+  standalone: true,
 })
 export class DeleteProductDirective {
   @Input({ required: true }) product!: Product;

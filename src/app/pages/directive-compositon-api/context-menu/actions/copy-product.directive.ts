@@ -9,7 +9,7 @@ import { UserRole } from 'src/app/services/user.service';
   hostDirectives: [
     {
       directive: AuthorizedAccessOnlyDirective,
-      inputs: ['roles: activeFor']
+      inputs: ['roles: activeFor'],
     },
   ],
 })

@@ -1,22 +1,35 @@
 <h2>Products</h2>
 
 <mat-list role="list">
-  @for (product of (products$ | async); track product) {
+  @for (product of products$ | async; track product) {
     <mat-list-item role="listitem">
       {{ product.name }}
-      <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{ product }"><mat-icon>more_vert</mat-icon></button>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        [matMenuTriggerData]="{ product }">
+        <mat-icon>more_vert</mat-icon>
+      </button>
     </mat-list-item>
   }
 </mat-list>
 
 <mat-menu #menu="matMenu">
   <ng-template matMenuContent let-product="product">
-    <button mat-menu-item *hasRole="[UserRole.ADMIN, UserRole.MANAGER]" dipEditProduct [product]="product">
+    <button
+      mat-menu-item
+      *hasRole="[UserRole.ADMIN, UserRole.MANAGER]"
+      dipEditProduct
+      [product]="product">
       <mat-icon>edit</mat-icon>
       <span>Edit</span>
     </button>
     <!-- DEMO: remove activeFor -->
-    <button mat-menu-item dipCopyProduct [product]="product" [activeFor]="[UserRole.MANAGER, UserRole.ADMIN]">
+    <button
+      mat-menu-item
+      dipCopyProduct
+      [product]="product"
+      [activeFor]="[UserRole.MANAGER, UserRole.ADMIN]">
       <mat-icon>file_copy</mat-icon>
       <span>Copy</span>
     </button>
@@ -32,7 +45,13 @@
       <mat-icon>call_to_action</mat-icon>
       <span>Action 3</span>
     </button>
-    <button mat-menu-item *hasRole="[UserRole.ADMIN, UserRole.MANAGER]" dipDeleteProduct [product]="product" [activeFor]="[UserRole.ADMIN]" message="Deletion is irreversible">
+    <button
+      mat-menu-item
+      *hasRole="[UserRole.ADMIN, UserRole.MANAGER]"
+      dipDeleteProduct
+      [product]="product"
+      [activeFor]="[UserRole.ADMIN]"
+      message="Deletion is irreversible">
       <mat-icon>delete_forever</mat-icon>
       <span>Delete</span>
     </button>

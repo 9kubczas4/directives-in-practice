@@ -17,10 +17,10 @@ import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
   //   }
   // ],
   templateUrl: './password-strength.component.html',
-  styleUrls: ['./password-strength.component.scss']
+  styleUrls: ['./password-strength.component.scss'],
 })
 export class InputExamplesComponent {
   passwordFormGroup = new FormGroup({
-    password: new FormControl('')
+    password: new FormControl(''),
   });
 }

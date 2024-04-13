@@ -1,18 +1,17 @@
 <header>
   <mat-toolbar color="primary">
     <span>Directives in Practice</span>
-    <p-dropdown users [formControl]="userFormControl" placeholder="Select user"></p-dropdown>
+    <p-dropdown
+      users
+      [formControl]="userFormControl"
+      placeholder="Select user"></p-dropdown>
   </mat-toolbar>
 </header>
 <main>
   <mat-drawer-container>
     <mat-drawer mode="side" opened>
       @for (page of pages$ | async; track page) {
-        <a
-          color="primary"
-          mat-button
-          [routerLink]="page.url"
-          >
+        <a color="primary" mat-button [routerLink]="page.url">
           <span>{{ page.label }}</span>
         </a>
       }
