@@ -17,7 +17,8 @@ import { NavigationService } from './services/navigation.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     DropdownModule,
     MatButtonModule,
     MatSidenavModule,
@@ -25,8 +26,8 @@ import { NavigationService } from './services/navigation.service';
     RouterLink,
     RouterOutlet,
     ReactiveFormsModule,
-    UserSelectDirective
-  ]
+    UserSelectDirective,
+  ],
 })
 export class AppComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
@@ -38,13 +39,17 @@ export class AppComponent implements OnInit {
   pages$ = this.navigationService.pages$;
 
   ngOnInit(): void {
-    this.userService.currentUser$.pipe(takeUntilDestroyed(this.destroyRef))
-    .subscribe((currentUser) => {
-      this.userFormControl.patchValue(currentUser);
-    });
+    this.userService.currentUser$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(currentUser => {
+        this.userFormControl.patchValue(currentUser);
+      });
 
     this.userFormControl.valueChanges
-    .pipe(tap((user) => this.userService.setCurrentUser(user!)), takeUntilDestroyed(this.destroyRef))
-    .subscribe();
+      .pipe(
+        tap(user => this.userService.setCurrentUser(user!)),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe();
   }
 }

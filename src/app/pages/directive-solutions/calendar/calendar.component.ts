@@ -9,7 +9,7 @@ import { CalendarDirective } from './calendar.directive';
   standalone: true,
   imports: [CalendarModule, FormsModule, CalendarDirective],
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
   date = new Date();

@@ -131,3 +131,6 @@ dist
 
 # angular
 .angular
+
+# nx
+.nx

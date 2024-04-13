@@ -11,8 +11,12 @@ import { UserRole, UserService } from 'src/app/services/user.service';
   imports: [CommonModule, ButtonModule, DropdownModule, UserSelectDirective],
   template: `
     <p-button label="Always enabled"></p-button>
-    <p-button label="Disabled for standard users" [disabled]="!(hasPermission$ | async)"></p-button>
-    <p-dropdown users [disabled]="!(hasPermission$ | async)"></p-dropdown>
+    <p-button
+      label="Disabled for standard users"
+      [disabled]="(hasPermission$ | async) === false"></p-button>
+    <p-dropdown
+      users
+      [disabled]="(hasPermission$ | async) === false"></p-dropdown>
   `,
 })
 export class DisableInteractiveElementsComponent {

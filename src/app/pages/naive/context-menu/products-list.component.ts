@@ -2,7 +2,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { Product, ProductService } from 'src/app/services/product.service';
 import { MatButtonModule } from '@angular/material/button';
 import { FirstService } from 'src/app/services/first.service';
@@ -12,9 +12,15 @@ import { ThirdService } from 'src/app/services/third.service';
 @Component({
   selector: 'dip-products-list',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, MatListModule, MatMenuModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+  ],
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent {
   private readonly productService = inject(ProductService);

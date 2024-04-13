@@ -1,12 +1,19 @@
-import { Directive, ElementRef, Input, HostListener, Renderer2, inject } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  HostListener,
+  Renderer2,
+  inject,
+} from '@angular/core';
 
 // Directive written by ChatGPT
 @Directive({
   selector: '[dipTooltip]',
-  standalone: true
+  standalone: true,
 })
 export class TooltipDirective {
-  @Input({ required: true}) message!: string;
+  @Input({ required: true }) message!: string;
   private tooltip: HTMLElement | null = null;
 
   private readonly el = inject(ElementRef);

@@ -2,5 +2,9 @@
   <h3>Dumb first component</h3>
 </header>
 <form [formGroup]="formGroup">
-  <p-dropdown formControlName="user" placeholder="Select user" optionLabel="fullName" [options]="(users$ | async)!"></p-dropdown>
+  <p-dropdown
+    formControlName="user"
+    placeholder="Select user"
+    optionLabel="fullName"
+    [options]="(users$ | async)!"></p-dropdown>
 </form>

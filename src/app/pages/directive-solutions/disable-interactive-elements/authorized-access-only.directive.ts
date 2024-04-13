@@ -1,4 +1,11 @@
-import { Directive, inject, DestroyRef, Input, ElementRef, ChangeDetectorRef } from '@angular/core';
+import {
+  Directive,
+  inject,
+  DestroyRef,
+  Input,
+  ElementRef,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatMenuItem } from '@angular/material/menu';
 import { Button } from 'primeng/button';
@@ -7,7 +14,7 @@ import { UserRole, UserService } from 'src/app/services/user.service';
 
 @Directive({
   selector: '[dipAuthorizedAccessOnly]',
-  standalone: true
+  standalone: true,
 })
 export class AuthorizedAccessOnlyDirective {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -17,15 +24,19 @@ export class AuthorizedAccessOnlyDirective {
   private readonly elementRef = inject(ElementRef, { self: true });
   private readonly button = inject(Button, { self: true, optional: true });
   private readonly select = inject(Dropdown, { self: true, optional: true });
-  private readonly menuItem = inject(MatMenuItem, { self: true, optional: true });
+  private readonly menuItem = inject(MatMenuItem, {
+    self: true,
+    optional: true,
+  });
 
   @Input() set roles(value: UserRole[]) {
-    this.userService.hasRole(value)
-    .pipe(takeUntilDestroyed(this.destroyRef))
-    .subscribe((hasPermission) => {
-      this.updateDisabledStatus(!hasPermission);
-    });
-  };
+    this.userService
+      .hasRole(value)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(hasPermission => {
+        this.updateDisabledStatus(!hasPermission);
+      });
+  }
 
   private updateDisabledStatus(disabled: boolean): void {
     if (this.button) {
@@ -35,7 +46,10 @@ export class AuthorizedAccessOnlyDirective {
       this.select.disabled = disabled;
     } else if (this.menuItem) {
       this.menuItem.disabled = disabled;
-    } else if (this.elementRef.nativeElement && 'disabled' in this.elementRef.nativeElement) {
+    } else if (
+      this.elementRef.nativeElement &&
+      'disabled' in this.elementRef.nativeElement
+    ) {
       this.elementRef.nativeElement.disabled = disabled;
     }
   }

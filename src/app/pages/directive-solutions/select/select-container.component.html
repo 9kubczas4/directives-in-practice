@@ -1,5 +1,8 @@
 <form [formGroup]="formGroup">
-  <p-dropdown users formControlName="user" placeholder="Select user"></p-dropdown>
+  <p-dropdown
+    users
+    formControlName="user"
+    placeholder="Select user"></p-dropdown>
 </form>
 
-<p> {{ userFormControlValue$ | async | json }} </p>
+<p>{{ userFormControlValue$ | async | json }}</p>

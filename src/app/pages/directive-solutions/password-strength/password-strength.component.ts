@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { PasswordStrengthDirective } from './directives/password-strength.directive';
 import { JsonPipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { advancedPasswordValidator } from './validators/advanced-password-validator';
-import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
+// import { advancedPasswordValidator } from './validators/advanced-password-validator';
+// import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
 
 @Component({
   selector: 'dip-password-strength',
@@ -17,10 +17,10 @@ import { PASSWORD_VALIDATION_FN } from './providers/password-providers';
   //   }
   // ],
   templateUrl: './password-strength.component.html',
-  styleUrls: ['./password-strength.component.scss']
+  styleUrls: ['./password-strength.component.scss'],
 })
 export class InputExamplesComponent {
   passwordFormGroup = new FormGroup({
-    password: new FormControl('')
+    password: new FormControl(''),
   });
 }

@@ -3,7 +3,7 @@ import { SecondService } from 'src/app/services/second.service';
 
 @Directive({
   selector: '[dipSecondActionProduct]',
-  standalone: true
+  standalone: true,
 })
 export class SecondActionProductDirective {
   @Input({ required: true }) productName!: string;

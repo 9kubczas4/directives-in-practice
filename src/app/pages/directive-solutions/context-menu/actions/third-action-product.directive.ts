@@ -3,7 +3,7 @@ import { ThirdService } from 'src/app/services/third.service';
 
 @Directive({
   selector: '[dipThirdActionProduct]',
-  standalone: true
+  standalone: true,
 })
 export class ThirdActionProductDirective {
   @Input({ required: true }) productName!: string;
