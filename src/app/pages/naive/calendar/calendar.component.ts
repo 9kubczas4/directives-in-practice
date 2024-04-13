@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'dip-calendar',
   standalone: true,
-  imports: [CommonModule, CalendarModule, FormsModule],
+  imports: [CalendarModule, FormsModule],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
