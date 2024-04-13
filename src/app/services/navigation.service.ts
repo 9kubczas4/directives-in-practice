@@ -5,7 +5,7 @@ import {
   DIRECTIVE_COMPOSITION_API_ROUTE_PREFIX,
   DIRECTIVE_ROUTE_PREFIX,
   NAIVE_ROUTE_PREFIX,
-} from '../routes';
+} from '../app.routes';
 import { routes as directiveCompositionApiRoutes } from '../pages/directive-compositon-api/routes';
 import { routes as directiveRoutes } from '../pages/directive-solutions/routes';
 import { routes as naiveRoutes } from '../pages/naive/routes';
