@@ -1,10 +1,11 @@
+import { OnInit } from '@angular/core';
 import { Directive, ElementRef, HostBinding, inject } from '@angular/core';
 
 @Directive({
   selector: 'a:not([noBlank])',
   standalone: true,
 })
-export class ExternalLinkDirective {
+export class ExternalLinkDirective implements OnInit {
   private readonly elRef: ElementRef<HTMLAnchorElement> = inject(ElementRef);
 
   @HostBinding('target') target?: '_blank' | '_self' | '_parent' | '_top' | '';

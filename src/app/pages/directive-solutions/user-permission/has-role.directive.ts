@@ -7,7 +7,6 @@ import {
   Input,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { take } from 'rxjs';
 import { UserRole, UserService } from 'src/app/services/user.service';
 
 @Directive({
@@ -24,7 +23,7 @@ export class HasRoleDirective {
     this.userService
       .hasRole(value)
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(hasRole =>
+      .subscribe((hasRole: boolean) =>
         hasRole ? this.addTemplate() : this.clearTemplate()
       );
   }

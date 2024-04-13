@@ -45,13 +45,15 @@ export class UserReactiveFormsSelectComponent implements ControlValueAccessor {
 
   @ViewChild('select')
   set select(next: ControlValueAccessor) {
-    this.value$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(value => {
-      next.writeValue(value);
-    });
+    this.value$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((value: number) => {
+        next.writeValue(value);
+      });
 
     this.disabled$
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(value => {
+      .subscribe((value: boolean) => {
         next.setDisabledState!(value);
       });
     next.registerOnChange(this.onChange);
@@ -61,20 +63,20 @@ export class UserReactiveFormsSelectComponent implements ControlValueAccessor {
   private readonly destroyRef = inject(DestroyRef);
   private readonly userService$ = inject(UserService);
 
-  private onChange: any;
-  private onTouch: any;
+  private onChange: unknown;
+  private onTouch: unknown;
   private value$ = new Subject<number>();
   private disabled$ = new Subject<boolean>();
 
   users$ = this.userService$.getUsers();
 
-  writeValue(obj: any): void {
+  writeValue(obj: number): void {
     this.value$.next(obj);
   }
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: unknown): void {
     this.onChange = fn;
   }
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: unknown): void {
     this.onTouch = fn;
   }
   setDisabledState(isDisabled: boolean): void {
