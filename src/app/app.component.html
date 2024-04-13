@@ -7,14 +7,15 @@
 <main>
   <mat-drawer-container>
     <mat-drawer mode="side" opened>
-      <a
-        *ngFor="let page of pages$ | async"
-        color="primary"
-        mat-button
-        [routerLink]="page.url"
-      >
-        <span>{{ page.label }}</span>
-      </a>
+      @for (page of pages$ | async; track page) {
+        <a
+          color="primary"
+          mat-button
+          [routerLink]="page.url"
+          >
+          <span>{{ page.label }}</span>
+        </a>
+      }
     </mat-drawer>
 
     <div class="dip-layout-content">

@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "directives-in-practice:build:production"
+              "buildTarget": "directives-in-practice:build:production"
             },
             "development": {
-              "browserTarget": "directives-in-practice:build:development"
+              "buildTarget": "directives-in-practice:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "directives-in-practice:build"
+            "buildTarget": "directives-in-practice:build"
           }
         },
         "test": {

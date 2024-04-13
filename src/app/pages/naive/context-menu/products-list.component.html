@@ -1,10 +1,12 @@
 <h2>Products</h2>
 
 <mat-list role="list">
-  <mat-list-item role="listitem" *ngFor="let product of (products$ | async)">
-    {{ product.name }}
-    <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{ product }"><mat-icon>more_vert</mat-icon></button>
-  </mat-list-item>
+  @for (product of (products$ | async); track product) {
+    <mat-list-item role="listitem">
+      {{ product.name }}
+      <button mat-icon-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{ product }"><mat-icon>more_vert</mat-icon></button>
+    </mat-list-item>
+  }
 </mat-list>
 
 <mat-menu #menu="matMenu">

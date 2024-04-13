@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AuthorizedAccessOnlyDirective } from './authorized-access-only.directive';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'dip-disable-interactive-elements',
   standalone: true,
-  imports: [CommonModule, AuthorizedAccessOnlyDirective, UserSelectDirective, ButtonModule, DropdownModule, MatButtonModule],
+  imports: [AuthorizedAccessOnlyDirective, UserSelectDirective, ButtonModule, DropdownModule, MatButtonModule],
   template: `
     <p-button label="Always enabled"></p-button>
     <p-button label="Disabled for standard users" dipAuthorizedAccessOnly [roles]="allowedRoles"></p-button>
