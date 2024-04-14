@@ -28,3 +28,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   z-index: 1000;
   display: block;
 }
+
+dip-disable-interactive-elements {
+  display: flex;
+  gap: 2rem;
+}

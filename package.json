@@ -22,6 +22,7 @@
     "@angular/material": "^17.3.4",
     "@angular/platform-browser": "^17.3.4",
     "@angular/platform-browser-dynamic": "^17.3.4",
+    "@angular/platform-server": "^17.3.4",
     "@angular/router": "^17.3.4",
     "primeng": "^17.13.0",
     "rxjs": "~7.8.0",
