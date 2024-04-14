@@ -4,7 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { tap } from 'rxjs';
+import { distinctUntilChanged, tap } from 'rxjs';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { User, UserService } from './services/user.service';
@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
 
     this.userFormControl.valueChanges
       .pipe(
+        distinctUntilChanged(),
         tap(user => this.userService.setCurrentUser(user!)),
         takeUntilDestroyed(this.destroyRef)
       )

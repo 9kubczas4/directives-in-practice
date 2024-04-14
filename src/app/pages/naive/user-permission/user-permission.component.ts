@@ -8,7 +8,7 @@ import { MatListModule } from '@angular/material/list';
   standalone: true,
   imports: [CommonModule, MatListModule],
   template: `
-    @if (hasPermission$ | async) {
+    @if (hasAdditionalPermission$ | async) {
       <mat-list role="list">
         <mat-list-item role="listitem">Setting 1</mat-list-item>
         <mat-list-item role="listitem">Setting 2</mat-list-item>
@@ -18,5 +18,8 @@ import { MatListModule } from '@angular/material/list';
 })
 export class UserPermissionComponent {
   private readonly userService = inject(UserService);
-  hasPermission$ = this.userService.hasRole([UserRole.ADMIN, UserRole.MANAGER]);
+  hasAdditionalPermission$ = this.userService.hasRole([
+    UserRole.ADMIN,
+    UserRole.MANAGER,
+  ]);
 }

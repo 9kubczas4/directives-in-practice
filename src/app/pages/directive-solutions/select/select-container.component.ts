@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   FormGroup,
   FormControl,
@@ -8,13 +7,15 @@ import {
 } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { UserSelectDirective } from './select.directive';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'dip-select-container',
   standalone: true,
   imports: [
-    CommonModule,
+    AsyncPipe,
     DropdownModule,
+    JsonPipe,
     ReactiveFormsModule,
     UserSelectDirective,
   ],

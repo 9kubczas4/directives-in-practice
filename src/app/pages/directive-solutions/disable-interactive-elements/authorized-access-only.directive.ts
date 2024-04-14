@@ -4,7 +4,6 @@ import {
   DestroyRef,
   Input,
   ElementRef,
-  ChangeDetectorRef,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatMenuItem } from '@angular/material/menu';
@@ -17,7 +16,6 @@ import { UserRole, UserService } from 'src/app/services/user.service';
   standalone: true,
 })
 export class AuthorizedAccessOnlyDirective {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly destroyRef = inject(DestroyRef);
   private readonly userService = inject(UserService);
 
@@ -29,7 +27,7 @@ export class AuthorizedAccessOnlyDirective {
     optional: true,
   });
 
-  @Input() set roles(value: UserRole[]) {
+  @Input({ required: true }) set roles(value: UserRole[]) {
     this.userService
       .hasRole(value)
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -40,8 +38,7 @@ export class AuthorizedAccessOnlyDirective {
 
   private updateDisabledStatus(disabled: boolean): void {
     if (this.button) {
-      this.button.disabled = disabled;
-      this.changeDetectorRef.detectChanges();
+      this.button.disabled = disabled; // in v16 detectChanges() call was required.
     } else if (this.select) {
       this.select.disabled = disabled;
     } else if (this.menuItem) {

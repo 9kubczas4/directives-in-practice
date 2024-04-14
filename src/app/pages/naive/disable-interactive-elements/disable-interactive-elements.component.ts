@@ -13,13 +13,16 @@ import { UserRole, UserService } from 'src/app/services/user.service';
     <p-button label="Always enabled"></p-button>
     <p-button
       label="Disabled for standard users"
-      [disabled]="(hasPermission$ | async) === false"></p-button>
+      [disabled]="(hasAdditionalPermission$ | async) === false"></p-button>
     <p-dropdown
       users
-      [disabled]="(hasPermission$ | async) === false"></p-dropdown>
+      [disabled]="(hasAdditionalPermission$ | async) === false"></p-dropdown>
   `,
 })
 export class DisableInteractiveElementsComponent {
   private readonly userService = inject(UserService);
-  hasPermission$ = this.userService.hasRole([UserRole.ADMIN, UserRole.MANAGER]);
+  hasAdditionalPermission$ = this.userService.hasRole([
+    UserRole.ADMIN,
+    UserRole.MANAGER,
+  ]);
 }

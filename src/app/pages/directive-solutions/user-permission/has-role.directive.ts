@@ -4,7 +4,8 @@ import {
   ViewContainerRef,
   inject,
   DestroyRef,
-  Input,
+  OnInit,
+  input,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UserRole, UserService } from 'src/app/services/user.service';
@@ -13,19 +14,21 @@ import { UserRole, UserService } from 'src/app/services/user.service';
   selector: '[hasRole]',
   standalone: true,
 })
-export class HasRoleDirective {
+export class HasRoleDirective implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly templateRef = inject(TemplateRef<unknown>);
   private readonly userService = inject(UserService);
   private readonly viewContainer = inject(ViewContainerRef);
 
-  @Input('hasRole') set roles(value: UserRole[]) {
+  roles = input.required<UserRole[]>({ alias: 'hasRole' });
+
+  ngOnInit(): void {
     this.userService
-      .hasRole(value)
+      .hasRole(this.roles())
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((hasRole: boolean) =>
-        hasRole ? this.addTemplate() : this.clearTemplate()
-      );
+      .subscribe((hasRole: boolean) => {
+        hasRole ? this.addTemplate() : this.clearTemplate();
+      });
   }
 
   private addTemplate(): void {
